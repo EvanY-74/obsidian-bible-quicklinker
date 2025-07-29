@@ -92,3 +92,10 @@ If you have multiple URLs, you can also do:
 ## API Documentation
 
 See https://github.com/obsidianmd/obsidian-api
+
+
+## Inspiration
+https://github.com/Floydv149/bibleLinkerPro/
+https://github.com/tim-hub/obsidian-bible-reference/
+https://github.com/kuchejak/obsidian-bible-linker-plugin/
+https://github.com/jaanonim/obsidian-youversion-linker/
