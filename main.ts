@@ -1,6 +1,5 @@
 import { Plugin, PluginSettingTab, Setting, TFile, Notice, Editor, EditorSuggest, App, EditorPosition, EditorSuggestTriggerInfo, EditorSuggestContext } from "obsidian";
 import { ViewPlugin, PluginValue, EditorView, ViewUpdate } from '@codemirror/view';
-import { link } from "fs";
 
 interface PluginSettings {
     pathToBibleFolder: string;
@@ -378,7 +377,7 @@ async function getVerse(book: string, chapter: number, verse: number, verseHeadi
     if (!(file instanceof TFile)) return new Error("File not found or not a TFile.");
     const content = await this.app.vault.read(file);
 
-    const match = content.match(new RegExp(`#{${verseHeadingLevel ? verseHeadingLevel : "1,6"}} [a-zA-Z ]*${verse}\\n:?(.+?)(?:\n#|$)`));
+    const match = content.match(new RegExp(`#{${verseHeadingLevel ? verseHeadingLevel : "1,6"}} [a-zA-Z ]*${verse}:?\\n(.+?)(?:\n#|$)`, 's'));
     if (!match) return new Error("Cannot find verse in file:" + file.name);
     return match[1].trim();
 }
